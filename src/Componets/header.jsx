@@ -1,9 +1,6 @@
 import React,{useEffect,useState} from 'react'
 import Picture12 from '../Assets/Picture12.png'
 import '../Style/header.css'
-import {Nav} from 'react-bootstrap';
-import {Navbar} from 'react-bootstrap';
-import {NavDropdown} from 'react-bootstrap';
 import {useNavigate} from 'react-router-dom';
 function Header() {
   const navigate=useNavigate()

@@ -7,7 +7,7 @@ import beta from '../Assets/ins_line.png'
 import {Button} from 'react-bootstrap'
 function contact() {
   return (
-    <div className="contact" >
+    <div className="contact">
         <div className="contactHeading" style={{borderBottom:"1px solid #393556"}}>
           <div className="contactHeadingFirst"  style={{padding:"0 25% 0 15%",fontSize:"7vw",fontFamily:"Sofia Sans",fontWeight:"1000",borderRight:"1px solid #393556"}}>
         <div className='contactFirstFirst'>We’d love to</div>

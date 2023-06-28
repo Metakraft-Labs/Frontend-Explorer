@@ -1,8 +1,5 @@
 import React, { useRef, useEffect } from 'react';
 import * as THREE from 'three';
-import {EffectComposer} from 'postprocessing';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
-import Logo from '../Assets/company_logo.png'
 import '../Style/brand.css'
 import {useNavigate} from 'react-router-dom'
 
@@ -10,10 +7,15 @@ const InfiniteSpace = () => {
   const navigate=useNavigate()
   let add=0.1
   const canvasRef = useRef(null);
-  const effect=()=>{
+  const effect=(event)=>{
     add=1;
+    event.target.classList.add('home-head-3-11');
+    event.target.classList.remove('home-head-3-12');
     setTimeout(()=>{
-      navigate('/explore')
+      add=0.1;    
+      console.log(event.target)
+      event.target.classList.remove('home-head-3-11');
+      event.target.classList.add('home-head-3-12');
     },2000)
   }
   useEffect(() => {
@@ -23,7 +25,7 @@ const InfiniteSpace = () => {
     camera.rotation.set(0,3.14/2,0);
     const renderer = new THREE.WebGLRenderer({ canvas: canvasRef.current});
 
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setSize(window.innerWidth, Math.min(window.innerHeight,window.innerWidth));
     // renderer.setClearColor(0x000000, 0);
     renderer.setPixelRatio(window.devicePixelRatio);
 
@@ -72,25 +74,20 @@ const InfiniteSpace = () => {
     animate();
 
   });
-  useEffect(() => {
-    let alp=document.getElementById('button1')
-    let alp1=document.getElementById('button2')
-    setTimeout(()=>{
-        alp.style.opacity=1;
-        alp1.style.opacity=1;
-    },4000)
-  },[]);
 
   return (
     <>
-    <div className="blur-container" style={{position:"absolute",top:"0",left:"0",right:"0"}}>
-  <img src={Logo} alt="Image" className="blur-image"/>
-  <div style={{display:"flex",gap:"3vw"}}>
-  <button onClick={effect} id='button1' style={{position:"relative",bottom:"4vh",left:"40vw",zIndex:"2",border:"0.15vw solid #01C5BA",cursor:"pointer",padding:"0.2vw 3vw",fontSize:"1vw",borderRadius:"0.5vw",backgroundColor:"white",border:"1px solid #1c2951",fontWeight:"600",color:"#1c2951"}}>Editor</button>
-  <button onClick={effect} id='button2' style={{position:"relative",bottom:"4vh",left:"40vw",zIndex:"2",border:"0.15vw solid #01C5BA",cursor:"pointer",padding:"0.2vw 2vw",fontSize:"1vw",borderRadius:"0.5vw",backgroundColor:"white",border:"1px solid #1c2951",fontWeight:"600",color:"#1c2951"}}>Explorer</button>
+    <div className='homeBody' style={{width:'100%'}}>
+  <canvas ref={canvasRef} style={{position:"absolute",top:"0",left:"0",right:"0",zIndex:"-1"}}/>
   </div>
-</div>
-  <canvas ref={canvasRef} style={{position:"absolute",top:"0",left:"0",right:"0",zIndex:"-1",width:"100vw",height:"100vh",overflow:'hidden'}}/>
+  <div className='home-head' style={{width:'100%'}}>
+      <div className='home-head-1'>Making Internet</div>
+      <div className='home-head-2'>Super Fun!</div>
+      <div className='home-head-3'>
+        <button className='home-head-3-1 home-head-3-12' onClick={effect}>Early Access</button>
+        <button className='home-head-3-2 home-head-3-12' onClick={effect}>Refer & Win</button>
+      </div>
+    </div>
   </>);
 };
 

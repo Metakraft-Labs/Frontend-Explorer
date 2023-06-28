@@ -3,14 +3,18 @@ import Picture12 from '../Assets/Picture12.png'
 import '../Style/footer.css'
 import {faFacebook,faLinkedin,faTwitter,faInstagram} from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import MetaForum from '../Assets/Meta_Forum.png'
 function Footer() {
   return (
     <footer  style={{fontSize:"1vw"}}>
     <div className="footer">
     <div className="left p-2">
-        <div><img style={{height:"2.5vw"}}src={Picture12} alt="not found"/></div>
-        <div>Copy @ 2023 Metakraft.</div>
-        <div>All rights reserved.</div>
+        <div style={{paddingLeft:'0.5vw'}}><img style={{height:"2.5vw"}}src={Picture12} alt="not found"/></div>
+        <div style={{paddingLeft:'1vw',paddingTop:'0.5vw'}}>Copy @ 2023 Metakraft.</div>
+        <div style={{paddingLeft:'1vw'}}>All rights reserved.</div>
+        <div style={{paddingTop:'0.5vw'}}>
+          <img src={MetaForum} alt="image" style={{width:'13.5vw',height:'3.75vw'}} />
+        </div>
     </div>
     <div className="center p-2">
       <div className="first">

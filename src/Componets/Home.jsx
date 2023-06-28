@@ -2,28 +2,26 @@ import React,{useEffect} from 'react'
 import '../Style/home.css'
 import InfiniteSpace from '../Animation/Infinitespace';
 import Aiverse from '../Assets/Aiverse.png'
-import Logo1 from '../Assets/logo_1.png'
-import Logo2 from '../Assets/logo_2.png'
-import Logo3 from '../Assets/logo_3.png'
-import Logo4 from '../Assets/logo_4.png'
-import Logo5 from '../Assets/logo_5.png'
-import Logo6 from '../Assets/logo_6.png'
-import Logo7 from '../Assets/logo_7.png'
-import Logo8 from '../Assets/logo_8.png'
 import Ipad_Mini from '../Assets/iPad Mini.png'
 import Ipad_Mini1 from '../Assets/iPad_Mini.png'
 import Solana from '../Assets/solana.png'
 import Metamask from '../Assets/Metamask.png'
 import Slider from 'react-slick'
-import { motion } from 'framer-motion';
+import Marquee from "react-fast-marquee";
+import {Logo1,Logo2,Logo4,Logo6} from './Logo.jsx'
+import Logo3 from '../Assets/Black_Transparent.png'
+import Logo5 from '../Assets/Iamal.jpg'
+import Logo7 from '../Assets/chain.png'
+import Logo8 from '../Assets/gt.jpeg'
+import Logo9 from '../Assets/nvidia.png'
+import Logo10 from '../Assets/ricge.jpg'
+import Logo11 from '../Assets/rov.jpg'
+import Logo12 from '../Assets/th.jpeg'
+import Logo13 from '../Assets/wirh.jpg'
+import Logo14 from '../Assets/Binance.png'
 
 
 function Home() {
-  const slideVariants = {
-    initial: { x: '-5%' },
-    animate: { x: '-20%' },
-    transition: { ease: 'linear', duration: 10, repeat: Infinity },
-  };
   const settings = {
     dots: false,
     infinite: true, // Enable infinite loop
@@ -34,20 +32,13 @@ function Home() {
     autoplaySpeed:1000,
     arrows:false
   };
-
   return (
-    <div style={{overflow:"hidden",width:"100vw"}}>
-    <div className="homeBody" >
+    <div style={{width:"100vw",fontFamily:'Roboto'}}>
       <InfiniteSpace/>
-    </div>
-    <div className='home-head'>
-      <div className='home-head-1'>Making Internet</div>
-      <div className='home-head-2'>Super Fun!</div>
-      <div className='home-head-3'>
-        <button className='home-head-3-1'>Early Access</button>
-        <button className='home-head-3-2'>Refer & Win</button>
-      </div>
-    </div>
+    <div className='punc1'>?</div>
+    <div className='punc2'>#</div>
+    <div className='punc3'>$</div>
+
     <div className='home-live'>
       <div>
         <img className='home-live-1' src={Aiverse} alt="image" />
@@ -57,21 +48,25 @@ function Home() {
     <div className='home-partner'>
     <div className='home-partner-1'>Ecosystem &</div>
     <div className='home-partner-2'>Strategic Partners</div>
-    <div id="slideshow" style={{padding:"1.5vw",paddingTop:"5vw",width:"100%",background:'transparent'}}>
+    <div style={{display:'flex'}}>
+    <div id="slideshow" style={{padding:"1.5vw",paddingTop:"4vw",width:"100%",background:'transparent'}}>
 <Slider {...settings}>
-    <div className="explore-logo-slide"><img style={{width:"4.5vw",height:"4.5vw",position:"relative",zIndex:"1"}} src={Logo1} alt="image" /></div>
-    <div className="explore-logo-slide"><img style={{width:"4.5vw",height:"4.5vw",position:"relative",zIndex:"1"}} src={Logo2} alt="image" /></div>
-    <div className="explore-logo-slide"><img style={{width:"4.5vw",height:"4.5vw",position:"relative",zIndex:"1"}} src={Logo1} alt="image" /></div>
-    <div className="explore-logo-slide"><img style={{width:"4.5vw",height:"4.5vw",position:"relative",zIndex:"1"}} src={Logo2} alt="image" /></div>
-    <div className="explore-logo-slide"><img style={{width:"4.5vw",height:"4.5vw",position:"relative",zIndex:"1"}} src={Logo3} alt="image" /></div>
-    <div className="explore-logo-slide"><img style={{width:"4.5vw",height:"4.5vw",position:"relative",zIndex:"1"}} src={Logo4} alt="image" /></div>
+    <div className="explore-logo-slide"><Logo1/></div>
+    <div className="explore-logo-slide"><Logo2/></div>
+    <div className="explore-logo-slide"><img style={{width:"4.5vw",height:"4.5vw",position:"relative",zIndex:"1",backgroundColor:'white'}} src={Logo3} alt="image" /></div>
+    <div className="explore-logo-slide"><Logo4/></div>
     <div className="explore-logo-slide"><img style={{width:"4.5vw",height:"4.5vw",position:"relative",zIndex:"1"}} src={Logo5} alt="image" /></div>
-    <div className="explore-logo-slide"><img style={{width:"4.5vw",height:"4.5vw",position:"relative",zIndex:"1"}} src={Logo6} alt="image" /></div>
-    <div className="explore-logo-slide"><img style={{width:"4.5vw",height:"4.5vw",position:"relative",zIndex:"1"}} src={Logo7} alt="image" /></div>
+    <div className="explore-logo-slide"><Logo6/></div>
+    <div className="explore-logo-slide"><img style={{width:"6.5vw",height:"4.5vw",position:"relative",zIndex:"1"}} src={Logo7} alt="image" /></div>
     <div className="explore-logo-slide"><img style={{width:"4.5vw",height:"4.5vw",position:"relative",zIndex:"1"}} src={Logo8} alt="image" /></div>
-    <div className="explore-logo-slide"><img style={{width:"4.5vw",height:"4.5vw",position:"relative",zIndex:"1"}} src={Logo7} alt="image" /></div>
-    <div className="explore-logo-slide"><img style={{width:"4.5vw",height:"4.5vw",position:"relative",zIndex:"1"}} src={Logo8} alt="image" /></div>
+    <div className="explore-logo-slide"><img style={{width:"4.5vw",height:"4.5vw",position:"relative",zIndex:"1"}} src={Logo9} alt="image" /></div>
+    <div className="explore-logo-slide"><img style={{width:"4.5vw",height:"4.5vw",position:"relative",zIndex:"1"}} src={Logo10} alt="image" /></div>
+    <div className="explore-logo-slide"><img style={{width:"4.5vw",height:"4.5vw",position:"relative",zIndex:"1"}} src={Logo11} alt="image" /></div>
+    <div className="explore-logo-slide"><img style={{width:"4.5vw",height:"4.5vw",position:"relative",zIndex:"1"}} src={Logo12} alt="image" /></div>
+    <div className="explore-logo-slide"><img style={{width:"4.5vw",height:"4.5vw",position:"relative",zIndex:"1"}} src={Logo13} alt="image" /></div>
+    <div className="explore-logo-slide"><img style={{width:"4.5vw",height:"4.5vw",position:"relative",zIndex:"1"}} src={Logo14} alt="image" /></div>
 </Slider>
+</div>
 </div>
     <div className='home-demo'>
     <svg width="6.28vw" height="6.28vw" viewBox="0 0 119 117" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -100,7 +95,7 @@ function Home() {
     <div style={{paddingTop:'4vw'}}>
       <div className='home-partner-4-2'>Explore Experience!</div>
       <div className='home-partner-4-2'>Explore, Create, Connect</div>
-      <div className='home-partner-4-3' style={{paddingTop:'2vw'}}>Unleash your imagination with an AI-driven, browser-based</div>
+      <div className='home-partner-4-3' style={{marginTop:'2vw'}}>Unleash your imagination with an AI-driven, browser-based</div>
       <div className='home-partner-4-3'>platform. Build, customize, and connect in a secure</div>
       <div className='home-partner-4-3'> environment, exploring endless possibilities and redefining</div>
       <div className='home-partner-4-3'>the virtual realm effortlessly.</div>
@@ -116,7 +111,7 @@ function Home() {
     <div style={{paddingTop:'8vw'}}>
       <div className='home-partner-4-2'>Designed to Scale as</div>
       <div className='home-partner-4-2'>your need Grows</div>
-      <div className='home-partner-4-3' style={{paddingTop:'2vw'}}>Metakraft is designed to scale with your business, creating</div>
+      <div className='home-partner-4-3' style={{marginTop:'2vw'}}>Metakraft is designed to scale with your business, creating</div>
       <div className='home-partner-4-3'>engaging virtual environments that can attract and retain as</div>
       <div className='home-partner-4-3'>users grows while generating revenue.</div>
     </div>
@@ -126,11 +121,11 @@ function Home() {
       <div className='home-floor-1'>
       <div style={{marginRight:"1.5vw"}}>
         <div className='home-floor-1-1'>
-          <div className='home-floor-1-2' style={{fontSize:'1.5vw'}}>Browser</div>
+          <div className='home-floor-1-2' style={{fontSize:'3.17vw'}}>Browser</div>
           <div className='home-floor-1-3'>Supported</div>
         </div>
         <div className='home-floor-1-1'>
-          <div className='home-floor-1-2' style={{fontSize:'1.5vw'}}>AI Enabled</div>
+          <div className='home-floor-1-2' style={{fontSize:'3.17vw'}}>AI Enabled</div>
           <div className='home-floor-1-3'>Asset Design</div>
         </div>
       </div>
@@ -146,40 +141,34 @@ function Home() {
       </div>
       </div>
       <div>
-        <img src={Metamask} alt="image" style={{width:'16.56vw',height:'15.36vw'}}/>
+        <img src={Metamask} alt="image" style={{width:'20.96vw',height:'19.47vw'}}/>
       </div>
     </div>
     <div className='home-slide'>
       <div className='home-slide-1'>What Others Says</div>
       <div className='home-slide-2'>Made by Builder's for the Builder's</div>
-      <motion.div className='home-slideshow'>
-      <motion.div className="home-slide-3"
-              variants={slideVariants}
-              initial="initial"
-              animate="animate"
-              transition={slideVariants.transition}
-      
-      >
-          <motion.div  className='home-slide-3-1'></motion.div>
-        <motion.div  className='home-slide-3-1'></motion.div>
-        <motion.div  className='home-slide-3-2'>
+        <Marquee>
+      <div className="home-slide-3">
+          <div  className='homeslide home-slide-3-1'></div>
+        <div  className='homeslide home-slide-3-1'></div>
+        <div  className='homeslide home-slide-3-2'>
           <div className='home-slide-3-2-1'></div>
           <div className='home-slide-3-2-2'>
             <div className='home-slide-3-2-2-1'></div>
             <div className='home-slide-3-2-2-2'></div>
           </div>
-        </motion.div>
-        <motion.div  className='home-slide-3-1'></motion.div>
-        <motion.div  className='home-slide-3-1'></motion.div>
-        <motion.div  className='home-slide-3-1'></motion.div>
-        <motion.div  className='home-slide-3-1'></motion.div>
-     </motion.div>
-     </motion.div>
+        </div>
+        <div  className='homeslide home-slide-3-1'></div>
+        <div  className='homeslide home-slide-3-1'></div>
+     </div>
+        </Marquee>
       <div className='home-slide-4'>
+        <Marquee direction='right'>
         <div>1000+ Signups</div>
         <div>300+ Beta Users</div>
         <div>100+ Mints</div>
         <div>10+ Studio Partners</div>
+      </Marquee>
       </div>
     </div>
     <div className='home-browsing'>
