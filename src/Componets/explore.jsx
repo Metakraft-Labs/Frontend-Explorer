@@ -150,7 +150,7 @@ function Explore() {
         <div className="explore-top-metaverses-1-heading" style={{fontFamily:'Roboto'}}> Top Metaverses</div>
         <div></div>
         <div className="explore-top-metaverses-1-navbar">
-            <div><svg width="1.5vw" height="1.5vw" viewBox="0 0 19 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg width="1.5vw" height="1.5vw" viewBox="0 0 19 25" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M1.26984 13.3354C0.669325 12.9403 0.669323 12.0597 1.26983 11.6646L17.4504 1.01949C18.1153 0.582026 19 1.05897 19 1.8549L19 23.1451C19 23.941 18.1153 24.418 17.4504 23.9805L1.26984 13.3354Z" fill="url(#paint0_linear_116_2238)"/>
 <defs>
 <linearGradient id="paint0_linear_116_2238" x1="16.6778" y1="12.5" x2="-17.2847" y2="12.5" gradientUnits="userSpaceOnUse">
@@ -158,8 +158,8 @@ function Explore() {
 <stop offset="1" stop-color="#624DE3"/>
 </linearGradient>
 </defs>
-</svg></div>
-            <div><svg width="1.5vw" height="1.5vw" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+</svg>
+           <svg width="1.5vw" height="1.5vw" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M12.4999 12.5V7.5L16.6666 10V15L12.4999 12.5Z" fill="#D501F8"/>
 <path d="M12.5 12.5L8.33331 15V10L12.5 7.5V12.5Z" fill="#C30DF5"/>
 <path d="M16.6666 14.9999L12.5 17.4999L8.33331 14.9999L12.5 12.4999L16.6666 14.9999Z" fill="#A521EF"/>
@@ -175,8 +175,8 @@ function Explore() {
 <path d="M16.6666 10V5L20.8333 2.5V7.5L16.6666 10Z" fill="#D501F8"/>
 <path d="M8.33331 5V0L12.5 2.5V7.5L8.33331 5Z" fill="#D501F8"/>
 <path d="M8.33329 5L4.16663 7.5V2.5L8.33329 0V5Z" fill="#A521EF"/>
-</svg></div>
-            <div style={{transform:"rotate(180deg)"}}><svg width="1.5vw" height="1.5vw" viewBox="0 0 19 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+</svg>
+            <svg style={{transform:"rotate(180deg)"}} width="1.5vw" height="1.5vw" viewBox="0 0 19 25" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M1.26984 13.3354C0.669325 12.9403 0.669323 12.0597 1.26983 11.6646L17.4504 1.01949C18.1153 0.582026 19 1.05897 19 1.8549L19 23.1451C19 23.941 18.1153 24.418 17.4504 23.9805L1.26984 13.3354Z" fill="url(#paint0_linear_116_2238)"/>
 <defs>
 <linearGradient id="paint0_linear_116_2238" x1="16.6778" y1="12.5" x2="-17.2847" y2="12.5" gradientUnits="userSpaceOnUse">
@@ -184,7 +184,7 @@ function Explore() {
 <stop offset="1" stop-color="#624DE3"/>
 </linearGradient>
 </defs>
-</svg></div>
+</svg>
         </div>
     </div>
     <div className="explore-metaverses-2">
@@ -200,7 +200,7 @@ function Explore() {
                     <div>
                         <img style={{width:"7vw",height:"7vw"}} src={Pikachu_M} alt="image" />
                     </div>
-                    <div style={{paddingTop:"1.6vh"}}>
+                    <div style={{paddingTop:"0.7vw"}}>
                         <img style={{width:"7vw",height:"7vw"}} src={Pikachu_M} alt="image" />
                     </div>
                 </div>
@@ -250,7 +250,7 @@ background: "linear-gradient(180deg, rgba(92,110,221,0.2) 3%, rgba(115,224,181,0
             <div className="explore-publish-body-2-1-2">MINT MEMBERSHIP</div>
             <div className="explore-publish-body-2-1-3">
                 <div className="explore-publish-body-2-1-3-1">
-                    <img src={METAKRAFT} alt="image" />
+                    <img  src={METAKRAFT} alt="image" />
                 </div>
                 <div className="explore-publish-body-2-1-3-2">+JOIN</div>
             </div>

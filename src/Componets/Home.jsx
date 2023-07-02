@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react'
+import React,{useEffect,useState} from 'react'
 import '../Style/home.css'
 import InfiniteSpace from '../Animation/Infinitespace';
 import Aiverse from '../Assets/Aiverse.png'
@@ -19,9 +19,15 @@ import Logo11 from '../Assets/rov.jpg'
 import Logo12 from '../Assets/th.jpeg'
 import Logo13 from '../Assets/wirh.jpg'
 import Logo14 from '../Assets/Binance.png'
-
+import {Modal1,Modal2} from './modal.jsx'
 
 function Home() {
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  const [show1, setShow1] = useState(false);
+  const handleClose1 = () => setShow1(false);
+  const handleShow1 = () => setShow1(true);
   const settings = {
     dots: false,
     infinite: true, // Enable infinite loop
@@ -186,13 +192,13 @@ function Home() {
         <div className='home-browsing-5-2'>Get Your Newsletter</div>
       <div className='home-browsing-6'>
         <div className='home-browsing-6-1'>&lt;</div>
-        <div style={{padding:"0",margin:"0"}}>
         <input type="text" className='home-browsing-6-2' placeholder='Enter Your Email'/>
-        </div>
       </div>
       </div>
     </div>
     </div>
+    <Modal1 show={show} setShow={setShow} handleClose={handleClose} handleShow={handleShow}/>
+    <Modal2 show={show1} setShow={setShow1} handleClose={handleClose1} handleShow={handleShow1}/>
     </div>
   )
 }

@@ -1,7 +1,6 @@
-
-
 .aboutBody{
     background-color:#080808;
+    font-family: 'Roboto';
 }
 .aboutMetaImg{
     text-align:center;
@@ -18,14 +17,21 @@
     -webkit-text-fill-color: transparent; 
     -moz-text-fill-color: transparent;
 }
+.backImg{
+  position:absolute;
+  width:100vw;
+  top:0;
+  left:0;
+  right:0;
+}
 
 .aboutMethodCards{
     display:flex;
     flex-direction:row;
     justify-content:space-around;
 }
-.aboutMethodCards div{
-background-color:#1E262E
+.aboutMethodCards-1{
+  background: linear-gradient(232deg, #1E262E 0%, rgba(30, 38, 46, 0.00) 100%) !important;
 }
 .aboutEco{
     display:flex;
@@ -43,23 +49,9 @@ background-color:#1E262E
   
   .carouselAbout {
     display: flex;
-    gap:100px;
-    animation: slide 10s linear infinite;
+    gap:6.944vw;
   }
   
-  .slideAbout {
-    flex-shrink: 0;
-    animation: slide 10s linear infinite;
-  }
-  
-  @keyframes slide {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-100%);
-    }
-  }
 .aboutSocial{
     margin-top:10%;
 }
@@ -69,11 +61,6 @@ background-color:#1E262E
     background-clip: text;
     -webkit-text-fill-color: transparent; 
     -moz-text-fill-color: transparent;
-}
-.backImg{
-    background-image: url("../Assets/Galactic Monochrome.png");
-    background-repeat:no-repeat;
-    background-size: cover;
 }
 
 @media only screen and (max-width:401px){
