@@ -43,7 +43,7 @@ function About() {
         </div>
       </div>
       <h5 style={{fontWeight:"600",color:"#ABABAB",margin:"0 31%",fontSize:"1.08vw"}}>Interested in knowing more? Or, think our synergies is matching, we would love to get on a call for the same, and talk about it.</h5>
-      <button className="contactUsButton" style={{fontWeight:"500",backgroundColor:"rgba(255, 255, 255, 0.2)",color:"#ABABAB",marginTop:"2%",borderRadius:"6px",border:"1px solid #A0A0A0",padding:"0.5vw 3.5vw",fontFamily:"Epilogue",fontSize:"1vw"}}>Contact Us</button>
+      <button className="contactUsButton" style={{fontWeight:"500",backgroundColor:"rgba(255, 255, 255, 0.2)",color:"#ABABAB",marginTop:"2%",borderRadius:"6px",border:"1px solid #A0A0A0",padding:"0.5vw 3.5vw",fontSize:"1vw"}}>Contact Us</button>
       <div className="aboutEco">
         <div><img style={{width:"32vw",height:"32vw",borderRadius:"14px"}} src={eco} alt="not found" /></div>
         <div style={{textAlign:"left",paddingLeft:"4%",paddingRight:"21%"}}>

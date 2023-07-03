@@ -67,7 +67,7 @@ function feature() {
         <div className='feature-3-7'>Major tools</div>
         <div className="feature-3-8">We supports all most used asset design tools, making it easy to integrate into your workflow. Its</div>
         <div className="feature-3-9">drag-and-drop interface enables easy asset importing and creation within the platform.</div>
-        <progress value='25' max='100' className="feature-3-10">
+        <progress value='25' max='100' className="feature-3-10" style={{visibility:'hidden'}}>
         </progress>
         <div className='feature-slider'>
         <Slider {...settings}>

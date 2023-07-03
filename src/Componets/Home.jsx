@@ -19,15 +19,9 @@ import Logo11 from '../Assets/rov.jpg'
 import Logo12 from '../Assets/th.jpeg'
 import Logo13 from '../Assets/wirh.jpg'
 import Logo14 from '../Assets/Binance.png'
-import {Modal1,Modal2} from './modal.jsx'
+import {Link} from 'react-router-dom'
 
 function Home() {
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-  const [show1, setShow1] = useState(false);
-  const handleClose1 = () => setShow1(false);
-  const handleShow1 = () => setShow1(true);
   const settings = {
     dots: false,
     infinite: true, // Enable infinite loop
@@ -183,7 +177,7 @@ function Home() {
         <div>Create new door of experience for your Friends, Fans & </div>
         <div>Clients</div>
       </div>
-      <button className='home-browsing-3'>Explore Features</button>
+      <button className='home-browsing-3'><Link to='/feature'>Explore Features</Link></button>
       <div className='home-browsing-4'>
       <img src={Solana} alt="image" />
       </div>
@@ -197,8 +191,6 @@ function Home() {
       </div>
     </div>
     </div>
-    <Modal1 show={show} setShow={setShow} handleClose={handleClose} handleShow={handleShow}/>
-    <Modal2 show={show1} setShow={setShow1} handleClose={handleClose1} handleShow={handleShow1}/>
     </div>
   )
 }

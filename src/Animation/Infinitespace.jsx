@@ -6,8 +6,34 @@ import {Modal1,Modal2} from '../Componets/modal.jsx'
 
 const InfiniteSpace = () => {
   const navigate=useNavigate()
-  let add=1
+  const [add,setAdd]=useState(1);
   const canvasRef = useRef(null);
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = (event) => {
+    setAdd(0.1);
+    setShow(true);  
+    event.target.classList.add('home-head-3-11');
+    event.target.classList.remove('home-head-3-12');
+    setTimeout(()=>{
+      setAdd(1);    
+      event.target.classList.remove('home-head-3-11');
+      event.target.classList.add('home-head-3-12');
+    },2000)}
+  const [show1, setShow1] = useState(false);
+  const handleClose1 = () => setShow1(false);
+  const handleShow1 = (event) => {
+    setAdd(0.1);
+    setShow1(true);
+    event.target.classList.add('home-head-3-11');
+    event.target.classList.remove('home-head-3-12');
+    setTimeout(()=>{
+      setAdd(1)  
+      event.target.classList.remove('home-head-3-11');
+      event.target.classList.add('home-head-3-12');
+    },2000)
+    
+  }
   useEffect(() => {
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(70, window.innerWidth/window.innerHeight, 0.1, 1000);
@@ -65,34 +91,7 @@ const InfiniteSpace = () => {
 
   });
 
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = (event) => {
-    setShow(true);
-    add=0.1;
-    event.target.classList.add('home-head-3-11');
-    event.target.classList.remove('home-head-3-12');
-    setTimeout(()=>{
-      add=1;    
-      console.log(event.target)
-      event.target.classList.remove('home-head-3-11');
-      event.target.classList.add('home-head-3-12');
-    },2000)}
-  const [show1, setShow1] = useState(false);
-  const handleClose1 = () => setShow1(false);
-  const handleShow1 = (event) => {
-    setShow1(true);
-    add=0.1;
-    event.target.classList.add('home-head-3-11');
-    event.target.classList.remove('home-head-3-12');
-    setTimeout(()=>{
-      add=1;    
-      console.log(event.target)
-      event.target.classList.remove('home-head-3-11');
-      event.target.classList.add('home-head-3-12');
-    },2000)
-    
-  }
+
   return (
     <>
     <div className='homeBody' style={{width:'100%'}}>
@@ -107,7 +106,7 @@ const InfiniteSpace = () => {
       </div>
     </div>
     <Modal1 show={show}  close={handleClose} />
-    <Modal2 show={show1}  handleClose={handleClose1} />
+    <Modal2 show={show1}  close={handleClose1} />
   </>);
 };
 
