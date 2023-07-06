@@ -129,15 +129,17 @@
 }
 .home-demo{
 width: 59.78vw;
-height: 36.24vw;
+height: 38.24vw;
 border-radius: 2.08vw;
 border: 1px solid #000;
-background: radial-gradient(50% 50.00% at 50% 50.00%, rgba(255, 255, 255, 0.21) 0%, rgba(255, 255, 255, 0.21) 100%);
-box-shadow: 0px 4px 20px -1px rgba(0, 0, 0, 0.00);
 backdrop-filter: blur(25px);
 text-align:center;
-padding:15vw 0;
 margin:3vw auto;
+}
+.home-demo-video{
+  width:100%;
+  border-radius: 2.08vw;
+  padding:0;
 }
 .home-partner-3{
   background: linear-gradient(#0E101C, #0E101C) padding-box,
@@ -283,7 +285,7 @@ margin:3vw auto;
   text-align: left;
   padding-left:3vw;
   position:absolute;
-  top:332vw;
+  top:333vw;
 }
 .home-browsing-5{
   width:100%;
@@ -352,7 +354,9 @@ margin:3vw auto;
   width:19.6vw !important;
   height:19.6vw;
   border-radius: 0.78vw;
+  padding:2% 2vw !important;
   background: rgba(214, 214, 214, 0.82);
+  text-align: left;
 }
 
 .home-slide-3-2{
@@ -368,16 +372,16 @@ margin:3vw auto;
 }
 .home-slide-3-2-2{
   display:flex;
-  justify-content: space-between;
+  gap:0.5vw;
 }
 .home-slide-3-2-2-1{
-  width:12.9vw !important;
+  width:15.9vw !important;
   height:8.92vw;
   border-radius:0.78vw;
   background: rgba(214, 214, 214, 0.82);
 }
 .home-slide-3-2-2-2{
-  width:19.6vw !important;
+  width:17.6vw !important;
   height:8.92vw;
   border-radius:0.78vw;
   background: rgba(214, 214, 214, 0.82);

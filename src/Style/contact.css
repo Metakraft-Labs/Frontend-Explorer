@@ -42,27 +42,3 @@
     flex-direction:row;
     padding:0% 8vw;
 }
-@media only screen and (max-width:701px){
-    .aboutSocialIcons div{
-        padding-top:2vw !important;
-    }
-    .aboutSocialIcons div div{
-        padding-top:1px !important;
-    }
-}
-@media only screen and (max-width:600px){
-    .aboutSocialIcons div{
-        padding-top:1vw !important;
-    }
-    .aboutSocialIcons div div{
-        padding-top:1px !important;
-    }
-}
-@media only screen and (max-width:401px){
-    .aboutSocialIcons div{
-        padding-top:0.5vw !important;
-    }
-    .aboutSocialIcons div div{
-        padding-top:0.3px !important;
-    }
-}

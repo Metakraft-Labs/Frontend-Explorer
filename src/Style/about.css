@@ -1,6 +1,26 @@
+.aboutBody_1,.aboutBody_2{
+  font-size:31.25vw;
+  color: rgba(255, 255, 255, 0.10);
+  font-weight: 500;
+  position:absolute;
+  font-family: 'Lexend';
+}
+
+.aboutBody_2{
+  font-weight: 700;
+  top:87.5vw;
+  transform: rotate(13.162deg);
+}
+.aboutBody_1{
+  top:25vw;
+  right:2vw;
+  transform: rotate(13.162deg);
+}
 .aboutBody{
     background-color:#080808;
     font-family: 'Roboto';
+    overflow-x: hidden;
+    
 }
 .aboutMetaImg{
     text-align:center;
@@ -25,26 +45,54 @@
   right:0;
 }
 
+.contactUsButton{
+  background: linear-gradient(#0E101C, #0E101C) padding-box,
+  linear-gradient(228.09deg, #FFEA2C -9.95%, rgba(251, 108, 4, 0.796875) 12.47%, rgba(255, 126, 227, 0.81) 30.87%, rgba(255, 255, 255, 0) 53.87%, rgba(131, 73, 255, 0.65) 70.34%, #0EFF26 100.44%) border-box !important;
+  border: 1px solid transparent !important;
+  background-color:#0E101C !important;
+  position: relative;
+  transform-style: preserve-3d;
+}
+.contactUsButton::before{
+  content: "";
+  position: absolute;
+  inset: -0.5vw;
+  z-index:-1;
+  transform: translate3d(0, 0, -0.052vw); /* (X, Y, Z) */
+  background:linear-gradient(335deg, rgba(136,96,243,1) 27%, rgba(255,255,255,1) 100%);
+  background-color: #0E101C;
+  opacity:0.3;
+  filter: blur(0.781vw);
+}
+
+
 .aboutMethodCards{
     display:flex;
     flex-direction:row;
     justify-content:space-around;
 }
 .aboutMethodCards-1{
-  background: linear-gradient(232deg, #1E262E 0%, rgba(30, 38, 46, 0.00) 100%) !important;
+background: linear-gradient(129deg, #1E262E 0%, rgba(30, 38, 46, 0.00) 100%) !important;
 }
 .aboutEco{
     display:flex;
     flex-direction:row;
-    margin-top:14%;
+    margin-top:7vw;
 }
 .aboutCarousel{
     margin-top:10%;
 }
+.aboutCarousel h1{
+  background-image: linear-gradient(335deg, rgba(136,96,243,1) 27%, rgba(255,255,255,1) 100%) !important;
+  background-size: cover;
+  background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  -moz-text-fill-color: transparent;
+}
 .carousel-container {
     width: 100%;
     overflow: hidden;
-    margin-top:4%;
+    margin-top:5%;
   }
   
   .carouselAbout {
@@ -63,30 +111,7 @@
     -moz-text-fill-color: transparent;
 }
 
-@media only screen and (max-width:401px){
-  .aboutSocialIcons div{
-      padding-top:0.5vw !important;
-  }
-  .aboutSocialIcons div div{
-      padding-top:0.3px !important;
-  }
-}
-@media only screen and (max-width:701px){
-  .aboutSocialIcons div{
-      padding-top:2vw !important;
-  }
-  .aboutSocialIcons div div{
-      padding-top:1px !important;
-  }
-}
-@media only screen and (max-width:600px){
-  .aboutSocialIcons div{
-      padding-top:1vw !important;
-  }
-  .aboutSocialIcons div div{
-      padding-top:1px !important;
-  }
-}
+
 @media only screen and (max-width:1000px){
 .contactUsButton{
   border-radius: 4px !important;
@@ -96,4 +121,10 @@
 .contactUsButton{
   border-radius: 3px !important;
 }
+}
+@media only screen and (max-width:500px){
+  .aboutMethodCards-1{
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
 }

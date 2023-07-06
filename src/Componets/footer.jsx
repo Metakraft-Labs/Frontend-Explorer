@@ -38,10 +38,10 @@ function Footer() {
     <div className="right p-2">
         <div>Social</div>
         <div className="icons">
-<div style={{paddingLeft:"0"}}><FontAwesomeIcon icon={faFacebook}/></div>
-<div><FontAwesomeIcon icon={faTwitter}/></div>
-<div><FontAwesomeIcon icon={faInstagram}/></div>
-<div ><FontAwesomeIcon icon={faLinkedin}/></div>
+<div style={{paddingLeft:"0"}}> <a href="https://www.threads.net/@metakraft.labs" style={{textDecoration:'none',color:'#ababab'}}> <FontAwesomeIcon icon={faFacebook}/> </a></div>
+<div> <a href="https://twitter.com/TheMetakraft" style={{textDecoration:'none',color:'#ababab'}}><FontAwesomeIcon icon={faTwitter}/> </a> </div>
+<div> <a href="https://www.instagram.com/metakraft.labs/" style={{textDecoration:'none',color:'#ababab'}}><FontAwesomeIcon icon={faInstagram}/> </a> </div>
+<div > <a href="https://www.linkedin.com/company/themetakraft/" style={{textDecoration:'none',color:'#ababab'}}><FontAwesomeIcon icon={faLinkedin}/> </a> </div>
         </div>
     </div>
     </div>

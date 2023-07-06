@@ -20,8 +20,13 @@ import Logo12 from '../Assets/th.jpeg'
 import Logo13 from '../Assets/wirh.jpg'
 import Logo14 from '../Assets/Binance.png'
 import {Link} from 'react-router-dom'
+import Animate from '../Assets/Animated.mp4'
 
 function Home() {
+  const play=()=>{
+    let alp=document.getElementsByTagName('video')[0]
+    if(alp)alp.play()
+  }
   const settings = {
     dots: false,
     infinite: true, // Enable infinite loop
@@ -69,27 +74,13 @@ function Home() {
 </div>
 </div>
     <div className='home-demo'>
-    <svg width="6.28vw" height="6.28vw" viewBox="0 0 119 117" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g filter="url(#filter0_d_283_10)">
-<ellipse cx="59.5" cy="54.5" rx="55.5" ry="54.5" fill="#D9D9D9"/>
-<path d="M83.996 56.43L74.6674 63.6643L58.1512 76.4726L55.1027 78.8367C53.13 80.3665 50.2609 78.9583 50.2643 76.462L50.2695 72.6042L50.3195 35.4287L50.3247 31.571C50.3281 29.0746 53.201 27.6742 55.1695 29.2093L58.2116 31.5816L74.6933 44.4343L84.0023 51.6937C85.5452 52.8968 85.542 55.2311 83.996 56.43Z" fill="black" stroke="black" stroke-width="313"/>
-</g>
-<defs>
-<filter id="filter0_d_283_10" x="0" y="0" width="119" height="117" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-<feOffset dy="4"/>
-<feGaussianBlur stdDeviation="2"/>
-<feComposite in2="hardAlpha" operator="out"/>
-<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.8 0"/>
-<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_283_10"/>
-<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_283_10" result="shape"/>
-</filter>
-</defs>
-</svg>
+    <video className='home-demo-video' src={Animate}>
+  Your browser does not support the video tag.
+</video>
+
     </div>
     <div style={{width:"100%",textAlign:"center"}}>
-    <button className='home-partner-3'>Watch Demo</button>
+    <button className='home-partner-3' onClick={play}>Watch Demo</button>
     </div>
     <div className='home-partner-4'>
     <div style={{paddingTop:'4vw'}}>
@@ -149,17 +140,84 @@ function Home() {
       <div className='home-slide-2'>Made by Builder's for the Builder's</div>
         <Marquee>
       <div className="home-slide-3">
-          <div  className='homeslide home-slide-3-1'></div>
-        <div  className='homeslide home-slide-3-1'></div>
-        <div  className='homeslide home-slide-3-2'>
-          <div className='home-slide-3-2-1'></div>
-          <div className='home-slide-3-2-2'>
-            <div className='home-slide-3-2-2-1'></div>
-            <div className='home-slide-3-2-2-2'></div>
+          <div  className='homeslide home-slide-3-1'>
+        <svg width="5.347vw" height="0.972vw" viewBox="0 0 77 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g id="Group 2031">
+        <path id="Star 1" d="M70.5 0L71.9593 4.83688H76.6819L72.8613 7.82624L74.3206 12.6631L70.5 9.67376L66.6794 12.6631L68.1387 7.82624L64.3181 4.83688H69.0407L70.5 0Z" fill="black"/>
+        <path id="Star 5" d="M6.5 0L7.95934 4.83688H12.6819L8.86126 7.82624L10.3206 12.6631L6.5 9.67376L2.6794 12.6631L4.13874 7.82624L0.318133 4.83688H5.04066L6.5 0Z" fill="black"/>
+        <path id="Star 2" d="M54.5 0L55.9593 4.83688H60.6819L56.8613 7.82624L58.3206 12.6631L54.5 9.67376L50.6794 12.6631L52.1387 7.82624L48.3181 4.83688H53.0407L54.5 0Z" fill="black"/>
+        <path id="Star 3" d="M38.5 0L39.9593 4.83688H44.6819L40.8613 7.82624L42.3206 12.6631L38.5 9.67376L34.6794 12.6631L36.1387 7.82624L32.3181 4.83688H37.0407L38.5 0Z" fill="black"/>
+        <path id="Star 4" d="M22.5 0L23.9593 4.83688H28.6819L24.8613 7.82624L26.3206 12.6631L22.5 9.67376L18.6794 12.6631L20.1387 7.82624L16.3181 4.83688H21.0407L22.5 0Z" fill="black"/>
+        </g>
+        </svg>
+        <div style={{lineHeight:'120%',fontSize:'1.2vw',paddingTop:'0.7vw'}}>Though I am building @rariko_info and I’m super bullish about it, I have my bets on our fellow Indian startup @AIVerse_Dai</div>
+        <div style={{fontSize:'1.1vw',fontWeight:'600',paddingTop:'0.7vw'}}>Mani Kumar</div>
           </div>
+        <div  className='homeslide home-slide-3-1'>
+        <svg width="5.347vw" height="0.972vw" viewBox="0 0 77 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g id="Group 2031">
+        <path id="Star 1" d="M70.5 0L71.9593 4.83688H76.6819L72.8613 7.82624L74.3206 12.6631L70.5 9.67376L66.6794 12.6631L68.1387 7.82624L64.3181 4.83688H69.0407L70.5 0Z" fill="black"/>
+        <path id="Star 5" d="M6.5 0L7.95934 4.83688H12.6819L8.86126 7.82624L10.3206 12.6631L6.5 9.67376L2.6794 12.6631L4.13874 7.82624L0.318133 4.83688H5.04066L6.5 0Z" fill="black"/>
+        <path id="Star 2" d="M54.5 0L55.9593 4.83688H60.6819L56.8613 7.82624L58.3206 12.6631L54.5 9.67376L50.6794 12.6631L52.1387 7.82624L48.3181 4.83688H53.0407L54.5 0Z" fill="black"/>
+        <path id="Star 3" d="M38.5 0L39.9593 4.83688H44.6819L40.8613 7.82624L42.3206 12.6631L38.5 9.67376L34.6794 12.6631L36.1387 7.82624L32.3181 4.83688H37.0407L38.5 0Z" fill="black"/>
+        <path id="Star 4" d="M22.5 0L23.9593 4.83688H28.6819L24.8613 7.82624L26.3206 12.6631L22.5 9.67376L18.6794 12.6631L20.1387 7.82624L16.3181 4.83688H21.0407L22.5 0Z" fill="black"/>
+        </g>
+        </svg>
+        <div style={{lineHeight:'120%',fontSize:'1.2vw',paddingTop:'0.7vw'}}>I’m holding out hope they’ll soon introduce extra cool and amazing capabilities.</div>
+        <div style={{fontSize:'1.1vw',fontWeight:'600',paddingTop:'0.7vw'}}>Jayson Caves</div>
         </div>
-        <div  className='homeslide home-slide-3-1'></div>
-        <div  className='homeslide home-slide-3-1'></div>
+          <div className='home-slide-3-1'>
+          <svg width="5.347vw" height="0.972vw" viewBox="0 0 77 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g id="Group 2031">
+        <path id="Star 1" d="M70.5 0L71.9593 4.83688H76.6819L72.8613 7.82624L74.3206 12.6631L70.5 9.67376L66.6794 12.6631L68.1387 7.82624L64.3181 4.83688H69.0407L70.5 0Z" fill="black"/>
+        <path id="Star 5" d="M6.5 0L7.95934 4.83688H12.6819L8.86126 7.82624L10.3206 12.6631L6.5 9.67376L2.6794 12.6631L4.13874 7.82624L0.318133 4.83688H5.04066L6.5 0Z" fill="black"/>
+        <path id="Star 2" d="M54.5 0L55.9593 4.83688H60.6819L56.8613 7.82624L58.3206 12.6631L54.5 9.67376L50.6794 12.6631L52.1387 7.82624L48.3181 4.83688H53.0407L54.5 0Z" fill="black"/>
+        <path id="Star 3" d="M38.5 0L39.9593 4.83688H44.6819L40.8613 7.82624L42.3206 12.6631L38.5 9.67376L34.6794 12.6631L36.1387 7.82624L32.3181 4.83688H37.0407L38.5 0Z" fill="black"/>
+        <path id="Star 4" d="M22.5 0L23.9593 4.83688H28.6819L24.8613 7.82624L26.3206 12.6631L22.5 9.67376L18.6794 12.6631L20.1387 7.82624L16.3181 4.83688H21.0407L22.5 0Z" fill="black"/>
+        </g>
+        </svg>
+        <div style={{lineHeight:'120%',fontSize:'1.2vw',paddingTop:'0.7vw'}}>Very interesting project with energetic founders. Looking forward to Great things from Aiverse! Good luck</div>
+        <div style={{fontSize:'1.1vw',fontWeight:'600',paddingTop:'0.7vw'}}>Prasanna Kondapaneni</div>
+          </div>
+            <div className='home-slide-3-1'>
+            <svg width="5.347vw" height="0.972vw" viewBox="0 0 77 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g id="Group 2031">
+        <path id="Star 1" d="M70.5 0L71.9593 4.83688H76.6819L72.8613 7.82624L74.3206 12.6631L70.5 9.67376L66.6794 12.6631L68.1387 7.82624L64.3181 4.83688H69.0407L70.5 0Z" fill="black"/>
+        <path id="Star 5" d="M6.5 0L7.95934 4.83688H12.6819L8.86126 7.82624L10.3206 12.6631L6.5 9.67376L2.6794 12.6631L4.13874 7.82624L0.318133 4.83688H5.04066L6.5 0Z" fill="black"/>
+        <path id="Star 2" d="M54.5 0L55.9593 4.83688H60.6819L56.8613 7.82624L58.3206 12.6631L54.5 9.67376L50.6794 12.6631L52.1387 7.82624L48.3181 4.83688H53.0407L54.5 0Z" fill="black"/>
+        <path id="Star 3" d="M38.5 0L39.9593 4.83688H44.6819L40.8613 7.82624L42.3206 12.6631L38.5 9.67376L34.6794 12.6631L36.1387 7.82624L32.3181 4.83688H37.0407L38.5 0Z" fill="black"/>
+        <path id="Star 4" d="M22.5 0L23.9593 4.83688H28.6819L24.8613 7.82624L26.3206 12.6631L22.5 9.67376L18.6794 12.6631L20.1387 7.82624L16.3181 4.83688H21.0407L22.5 0Z" fill="black"/>
+        </g>
+        </svg>
+        <div style={{lineHeight:'120%',fontSize:'1.2vw',paddingTop:'0.7vw'}}>Great to see Aiverse’s  integrations with lighthouse, Very Excited for their product!</div>
+        <div style={{fontSize:'1.1vw',fontWeight:'600',paddingTop:'0.7vw'}}>Nandit Mehra</div>
+            </div>
+            <div className='home-slide-3-1'>
+            <svg width="5.347vw" height="0.972vw" viewBox="0 0 77 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g id="Group 2031">
+        <path id="Star 1" d="M70.5 0L71.9593 4.83688H76.6819L72.8613 7.82624L74.3206 12.6631L70.5 9.67376L66.6794 12.6631L68.1387 7.82624L64.3181 4.83688H69.0407L70.5 0Z" fill="black"/>
+        <path id="Star 5" d="M6.5 0L7.95934 4.83688H12.6819L8.86126 7.82624L10.3206 12.6631L6.5 9.67376L2.6794 12.6631L4.13874 7.82624L0.318133 4.83688H5.04066L6.5 0Z" fill="black"/>
+        <path id="Star 2" d="M54.5 0L55.9593 4.83688H60.6819L56.8613 7.82624L58.3206 12.6631L54.5 9.67376L50.6794 12.6631L52.1387 7.82624L48.3181 4.83688H53.0407L54.5 0Z" fill="black"/>
+        <path id="Star 3" d="M38.5 0L39.9593 4.83688H44.6819L40.8613 7.82624L42.3206 12.6631L38.5 9.67376L34.6794 12.6631L36.1387 7.82624L32.3181 4.83688H37.0407L38.5 0Z" fill="black"/>
+        <path id="Star 4" d="M22.5 0L23.9593 4.83688H28.6819L24.8613 7.82624L26.3206 12.6631L22.5 9.67376L18.6794 12.6631L20.1387 7.82624L16.3181 4.83688H21.0407L22.5 0Z" fill="black"/>
+        </g>
+        </svg>
+        <div style={{lineHeight:'120%',fontSize:'1.2vw',paddingTop:'0.7vw'}}>Excellent bringing opportunity to all users  there’s a lot of helping features that can helps us!</div>
+        <div style={{fontSize:'1.1vw',fontWeight:'600',paddingTop:'0.7vw'}}>Disney</div>
+            </div>
+        <div  className='homeslide home-slide-3-1'>
+        <svg width="5.347vw" height="0.972vw" viewBox="0 0 77 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g id="Group 2031">
+        <path id="Star 1" d="M70.5 0L71.9593 4.83688H76.6819L72.8613 7.82624L74.3206 12.6631L70.5 9.67376L66.6794 12.6631L68.1387 7.82624L64.3181 4.83688H69.0407L70.5 0Z" fill="black"/>
+        <path id="Star 5" d="M6.5 0L7.95934 4.83688H12.6819L8.86126 7.82624L10.3206 12.6631L6.5 9.67376L2.6794 12.6631L4.13874 7.82624L0.318133 4.83688H5.04066L6.5 0Z" fill="black"/>
+        <path id="Star 2" d="M54.5 0L55.9593 4.83688H60.6819L56.8613 7.82624L58.3206 12.6631L54.5 9.67376L50.6794 12.6631L52.1387 7.82624L48.3181 4.83688H53.0407L54.5 0Z" fill="black"/>
+        <path id="Star 3" d="M38.5 0L39.9593 4.83688H44.6819L40.8613 7.82624L42.3206 12.6631L38.5 9.67376L34.6794 12.6631L36.1387 7.82624L32.3181 4.83688H37.0407L38.5 0Z" fill="black"/>
+        <path id="Star 4" d="M22.5 0L23.9593 4.83688H28.6819L24.8613 7.82624L26.3206 12.6631L22.5 9.67376L18.6794 12.6631L20.1387 7.82624L16.3181 4.83688H21.0407L22.5 0Z" fill="black"/>
+        </g>
+        </svg>
+        <div style={{lineHeight:'120%',fontSize:'1.2vw',paddingTop:'0.7vw'}}>Excited to see Aiverse making waves as an efficient tool for developers and creators.</div>
+        <div style={{fontSize:'1.1vw',fontWeight:'600',paddingTop:'0.7vw'}}>Sarah Jones</div>
+        </div>
      </div>
         </Marquee>
       <div className='home-slide-4'>
@@ -185,7 +243,7 @@ function Home() {
         <div className='home-browsing-5-1'>Stay Updated with Latest</div>
         <div className='home-browsing-5-2'>Get Your Newsletter</div>
       <div className='home-browsing-6'>
-        <div className='home-browsing-6-1'>&lt;</div>
+        <div className='home-browsing-6-1' style={{cursor:'pointer'}}>&lt;</div>
         <input type="text" className='home-browsing-6-2' placeholder='Enter Your Email'/>
       </div>
       </div>

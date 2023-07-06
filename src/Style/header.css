@@ -1,6 +1,5 @@
 .navBar{
     width:100vw;
-    overflow: hidden;
     backdrop-filter: blur(10px);
 }
 .hire {
@@ -36,4 +35,27 @@
     padding:0.2vw 1vw;
     font-size:1vw;
     font-weight:600;
+}
+#dropdown-basic{
+    background-color: transparent;
+    border:1px solid transparent;
+    font-size: 1vw !important;
+    padding-top: 0 !important;
+    color:#C4C4C4 !important;
+
+    }
+#dropdown-basic::after{
+    color:#C4C4C4 !important;
+}
+.dropdown-menu.show{
+    border:1px solid #9c9c9c;
+    text-align: center !important;
+    padding-top:1.25vw !important;
+    padding-bottom:0.8vw !important;
+}
+.dropdown-menu.show a{
+    color:#9c9c9c !important;
+    font-size: 0.91vw !important;
+    font-weight: 500 !important;
+    padding-bottom: 1vw !important;
 }
