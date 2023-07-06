@@ -244,6 +244,7 @@ function Header() {
                 fontSize: "1vw",
                 fontWeight: "650",
               }}
+              onClick={() => window.open("https://app.social3.club/company/49", "_blank")}
               className="hire"
             >
               We are hiring!
