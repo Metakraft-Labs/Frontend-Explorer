@@ -2,7 +2,6 @@
   "name": "myapp",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Metakraft-Labs.github.io/Frontend-Explorer",
   "dependencies": {
     "@arcana/auth": "^1.0.5",
     "@babel/core": "^7.16.0",
@@ -43,7 +42,6 @@
     "ethers": "^6.6.2",
     "file-loader": "^6.2.0",
     "fs-extra": "^10.0.0",
-    "gh-pages": "^5.0.0",
     "gsap": "^3.12.1",
     "html-webpack-plugin": "^5.5.0",
     "identity-obj-proxy": "^3.0.0",
@@ -86,8 +84,6 @@
     "workbox-webpack-plugin": "^6.4.1"
   },
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js"
