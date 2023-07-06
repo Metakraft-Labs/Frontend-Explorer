@@ -1,14 +1,13 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './Componets/header.jsx'
 import Footer from './Componets/footer.jsx'
-import About from './Componets/About.jsx'
-import Contact from './Componets/contact.jsx'
-import Home from './Componets/Home.jsx'
+import About from './pages/About'
+import Contact from './pages/Contact'
+import Home from './pages/Home'
 import InfiniteSpace from './Animation/Infinitespace.jsx';
 import Explore from './Componets/explore.jsx'
 import Feature from './Componets/feature.jsx'
-import $ from 'jquery'
-import {BrowserRouter,Route,Routes,useNavigate} from 'react-router-dom'
+import { BrowserRouter, Route, Routes, useNavigate } from 'react-router-dom'
 import { Web3OnboardProvider, init } from '@web3-onboard/react'
 import injectedModule from '@web3-onboard/injected-wallets'
 const INFURA_KEY = ''
@@ -33,17 +32,17 @@ const web3Onboard = init({
 function App() {
   return (
     <Web3OnboardProvider web3Onboard={web3Onboard}>
-    <div className="App">
-     <BrowserRouter>
-     <Routes>
-     <Route exact path="/explore" element={<><Explore/></>}/>
-     <Route exact path="/feature" element={<><Header/><Feature/><Footer/></>}/>
-     <Route exact path="/" element={<><Header/><Home/><Footer/></>}/>
-     <Route exact path="/about" element={<><Header/><About/><Footer/></>}/>
-     <Route exact path="/contact" element={<><Header/><Contact/><Footer/></>}/>
-     </Routes>
-     </BrowserRouter>
-    </div>
+      <div className="App">
+        <BrowserRouter>
+          <Routes>
+            <Route exact path="/explore" element={<><Explore /></>} />
+            <Route exact path="/feature" element={<><Header /><Feature /><Footer /></>} />
+            <Route exact path="/" element={<><Header /><Home /><Footer /></>} />
+            <Route exact path="/about" element={<><Header /><About /><Footer /></>} />
+            <Route exact path="/contact" element={<><Header /><Contact /><Footer /></>} />
+          </Routes>
+        </BrowserRouter>
+      </div>
     </Web3OnboardProvider>
   );
 }
