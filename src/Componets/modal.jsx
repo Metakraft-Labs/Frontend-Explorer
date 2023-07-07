@@ -8,8 +8,7 @@ import {useLocation} from 'react-router-dom'
 
 export function Modal1({ show, close }) {
   const location=useLocation()
-  const params = new URLSearchParams(location.search);
-  const param1 = params.get('ref');
+  const [ref,setRef]=useState('')
  const [mail,setMail]=useState('')
  const [{ wallet, connecting }, connect, disconnect] = useConnectWallet();
  let ethersProvider;
@@ -25,6 +24,7 @@ export function Modal1({ show, close }) {
         window.ethereum
          .request({ method: "eth_requestAccounts" })
          .then((result) => {
+          if(!result[0]){close(); return ;}
           setDefaultAccount(result[0]);   
          });
      } else {
@@ -32,23 +32,26 @@ export function Modal1({ show, close }) {
      }
    };
    await connectWalletHandler()
-   console.log(defaultAccount,mail)
-   const resp=await fetch('http://localhost:4001/auth/register',{
+   const params = new URLSearchParams(location.search);
+   const param1 =params.get('ref');
+   setRef(param1)
+   let data={"email":mail,"wallet":defaultAccount}
+   if(param1 && param1.length>0)data={"email":mail,"wallet":defaultAccount,"ref_code":ref}
+   if(defaultAccount && defaultAccount.length>0){const resp=await fetch('http://localhost:4001/auth/register',{
    method:'POST',
    headers:{
      'Content-Type':'application/json'
    },
-   body:JSON.stringify({"email":mail,"wallet":defaultAccount,"ref_code":param1})
+   body:JSON.stringify(data)
 })
  const resp1=await resp.json() 
    event.target.classList.add('home-head-3-12');
    event.target.classList.remove('home-head-3-11');
  close()
  setMail('')
- console.log(resp1)
  if(resp1.data){
   console.log("success")
- }
+ }}
 }
   return (
     <>
@@ -112,7 +115,7 @@ export function Modal2({ show, close }) {
     const accountChangedHandler =(newAccount) => {
       setDefaultAccount(newAccount);
     };
-    await connectWalletHandler()
+    if(defaultAccount && defaultAccount.length>0){
     const resp=await fetch('http://localhost:4001/auth/login',{
     method:'POST',
     headers:{
@@ -127,7 +130,7 @@ export function Modal2({ show, close }) {
   console.log(resp1)
   if(resp1.data==null){
     console.log('Signup First')
-  }
+  }}
 }
   return (
     <>
