@@ -1,8 +1,51 @@
 import React, { useState } from "react";
 import "../Style/modal.css";
 import Close from "../Assets/xmark-solid.svg";
+import { init, useConnectWallet } from "@web3-onboard/react";
+import injectedModule from "@web3-onboard/injected-wallets";
+import { ethers } from "ethers";
 
 export function Modal1({ show, close }) {
+ const [mail,setMail]=useState('')
+ const [{ wallet, connecting }, connect, disconnect] = useConnectWallet();
+ let ethersProvider;
+ if (wallet) {
+   ethersProvider = new ethers.BrowserProvider(wallet.provider, "any");
+ }
+ const [defaultAccount, setDefaultAccount] = useState(null);
+ const handleReferal=async (event)=>{
+   event.target.classList.add('home-head-3-11');
+   event.target.classList.remove('home-head-3-12');
+   const connectWalletHandler = async() => {
+     if (window.ethereum) {
+        window.ethereum
+         .request({ method: "eth_requestAccounts" })
+         .then((result) => {
+          setDefaultAccount(result[0]);   
+         });
+     } else {
+       console.log("No ethereum account");
+     }
+   };
+   await connectWalletHandler()
+   console.log(defaultAccount,mail)
+   const resp=await fetch('http://localhost:4001/auth/register',{
+   method:'POST',
+   headers:{
+     'Content-Type':'application/json'
+   },
+   body:JSON.stringify({"email":mail,"wallet":defaultAccount})
+})
+ const resp1=await resp.json() 
+   event.target.classList.add('home-head-3-12');
+   event.target.classList.remove('home-head-3-11');
+ close()
+ setMail('')
+ console.log(resp1)
+ if(resp1.data){
+  console.log("success")
+ }
+}
   return (
     <>
       {show ? (
@@ -28,11 +71,11 @@ export function Modal1({ show, close }) {
                 <input type="text" placeholder="Last Name" />
               </div>
               <div className="modal-content-2">
-                <input type="text" placeholder="Enter Your Email" />
+                <input type="text" value={mail} onChange={(event)=>{setMail(event.target.value)}} placeholder="Enter Your Email" />
               </div>
             </main>
             <footer className="modal_footer">
-              <button className="submit">Submit</button>
+              <button className="submit home-head-3-12" onClick={handleReferal}>Submit</button>
             </footer>
           </div>
         </div>
@@ -42,6 +85,46 @@ export function Modal1({ show, close }) {
 }
 
 export function Modal2({ show, close }) {
+  const [{ wallet, connecting }, connect, disconnect] = useConnectWallet();
+  let ethersProvider;
+  if (wallet) {
+    ethersProvider = new ethers.BrowserProvider(wallet.provider, "any");
+  }
+  const [defaultAccount, setDefaultAccount] = useState(null);
+  const handleReferal=async (event)=>{
+    event.target.classList.add('home-head-3-11');
+    event.target.classList.remove('home-head-3-12');
+    const connectWalletHandler =async () => {
+      if (window.ethereum) {
+        await window.ethereum
+          .request({ method: "eth_requestAccounts" })
+          .then((result) => {
+            accountChangedHandler(result[0]);
+          });
+      } else {
+        console.log("No ethereum account");
+      }
+    };
+    const accountChangedHandler =(newAccount) => {
+      setDefaultAccount(newAccount);
+    };
+    await connectWalletHandler()
+    const resp=await fetch('http://localhost:4001/auth/login',{
+    method:'POST',
+    headers:{
+      'Content-Type':'application/json'
+    },
+    body:JSON.stringify({"wallet":defaultAccount})
+})
+  const resp1=await resp.json() 
+    event.target.classList.add('home-head-3-12');
+    event.target.classList.remove('home-head-3-11');
+  close()
+  console.log(resp1)
+  if(resp1.data==null){
+    console.log('Signup First')
+  }
+}
   return (
     <>
       {show ? (
@@ -455,7 +538,7 @@ export function Modal2({ show, close }) {
               </div>
             </main>
             <footer className="modal_footer">
-              <button className="submit">Refer & Win</button>
+              <button className="submit home-head-3-12" onClick={handleReferal}>Refer & Win</button>
             </footer>
           </div>
         </div>

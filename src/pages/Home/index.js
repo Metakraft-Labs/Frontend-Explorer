@@ -24,6 +24,29 @@ import Animate from '../../Assets/Animated.mp4'
 import Title from '../../shared/Title'
 
 function Home() {
+    const [news,setNews]=useState('')
+    const handleShow = (event) => {
+        event.target.classList.add('home-head-3-11');
+        event.target.classList.remove('home-head-3-12');
+        setTimeout(()=>{
+          event.target.classList.remove('home-head-3-11');
+          event.target.classList.add('home-head-3-12');
+        },2000)}
+    const subscribe=async ()=>{
+        const crudresponse = await fetch(
+            "https://blog.metakraft.live/api/newsletter/subscribe",
+          {
+              method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                email:news,
+              publicationId: "648e275cb3c039fc791a9e2b"
+            })
+           }
+         );
+         setNews('')
+          return await crudresponse.json();
+    }
     const play = () => {
         let alp = document.getElementsByTagName('video')[0]
         if (alp) alp.play()
@@ -83,7 +106,7 @@ function Home() {
 
                 </div>
                 <div style={{ width: "100%", textAlign: "center" }}>
-                    <button className='home-partner-3' onClick={play}>Watch Demo</button>
+                    <button className='home-partner-3 home-head-3-12' onClick={handleShow}>Watch Demo</button>
                 </div>
                 <div className='home-partner-4'>
                     <div style={{ paddingTop: '4vw' }}>
@@ -246,8 +269,8 @@ function Home() {
                         <div className='home-browsing-5-1'>Stay Updated with Latest</div>
                         <div className='home-browsing-5-2'>Get Your Newsletter</div>
                         <div className='home-browsing-6'>
-                            <div className='home-browsing-6-1' style={{ cursor: 'pointer' }}>&lt;</div>
-                            <input type="text" className='home-browsing-6-2' placeholder='Enter Your Email' />
+                            <div className='home-browsing-6-1' style={{ cursor: 'pointer' }} onClick={subscribe}>&lt;</div>
+                            <input type="text" value={news} onChange={(event)=>{setNews(event.target.value)}} className='home-browsing-6-2' placeholder='Enter Your Email' />
                         </div>
                     </div>
                 </div>

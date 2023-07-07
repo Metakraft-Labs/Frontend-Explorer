@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import '../Style/feature.css'
 import Shadow from '../Assets/Shadow.png'
 import Feature1 from '../Assets/feature-1.png'
@@ -10,7 +10,25 @@ import Feature4 from '../Assets/feature-4.png'
 import Feature5 from '../Assets/feature-6.png'
 import Feature6 from '../Assets/feature-5.png'
 
-function feature() {
+function Feature() {
+    const [mail1,setMail1]=useState('')
+    const [mail2,setMail2]=useState('')
+    const subscribe=async (news)=>{
+        const crudresponse = await fetch(
+            "https://blog.metakraft.live/api/newsletter/subscribe",
+          {
+              method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                email:news,
+              publicationId: "648e275cb3c039fc791a9e2b"
+            })
+           }
+         );
+         setMail1('')
+         setMail2('')
+          return await crudresponse.json();
+    }
     const effect=(event)=>{
         event.target.classList.add('feature-shadow-1');
         event.target.classList.remove('feature-hover');
@@ -46,8 +64,8 @@ function feature() {
                 <div className='feature-2-2-2'>Build better metaverses effortlessly! For Your  Client, Business or</div>
                 <div className='feature-2-2-3'>Employee Onboarding.</div>
                 <div className='feature-browsing-6_1'>
-                <div className='feature-browsing-6-1'>&lt;</div>
-                <input type="text" className='feature-browsing-6-2' placeholder='Enter Your Email'/>
+                <div className='feature-browsing-6-1' onClick={()=>{subscribe(mail1)}}>&lt;</div>
+                <input value={mail1} onChange={(event)=>{setMail1(event.target.value)}} type="text" className='feature-browsing-6-2' placeholder='Enter Your Email'/>
                 </div>
             </div>
         </div>
@@ -113,8 +131,8 @@ function feature() {
         <div className='feature-browsing-5-1'>Stay Updated with Latest</div>
         <div className='feature-browsing-5-2'>Get Your Newsletter</div>
       <div className='feature-browsing-6'>
-        <div className='feature-browsing-6-1'>&lt;</div>
-        <input type="text" className='feature-browsing-6-2' placeholder='Enter Your Email'/>
+        <div className='feature-browsing-6-1' onClick={()=>{subscribe(mail2)}}>&lt;</div>
+        <input type="text" value={mail2} onChange={(event)=>{setMail2(event.target.value)}} className='feature-browsing-6-2' placeholder='Enter Your Email'/>
       </div>
       </div>
       <img src={Solana} alt="image" className='feature-last-image'/>
@@ -122,4 +140,4 @@ function feature() {
   )
 }
 
-export default feature
+export default Feature

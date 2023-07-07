@@ -81,20 +81,6 @@
     border: 0.139vw solid transparent;
     position: relative;
   }
-  .submit::before{
-    content: "";
-    position: absolute;
-    inset: -0.5vw;
-    z-index:-1;
-    transform: translate3d(0, 0, -0.052vw); /* (X, Y, Z) */
-    background: linear-gradient(228.09deg, #FFEA2C -9.95%, rgba(251, 108, 4, 0.796875) 12.47%, rgba(255, 126, 227, 0.81) 30.87%, rgba(255, 255, 255, 0) 53.87%, rgba(131, 73, 255, 0.65) 70.34%, #0EFF26 100.44%);
-    background-color: #0E101C;
-    opacity:0.7;
-    filter: blur(0.781vw);
-  }
-  .submit:hover {
-    background-color: rgba(54, 67, 72, 0.8);
-  }
   .modal_content {
     padding: 2vw 0 1vw 0;
     padding-bottom:3vw;
