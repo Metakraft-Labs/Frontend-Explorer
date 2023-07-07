@@ -4,8 +4,12 @@ import Close from "../Assets/xmark-solid.svg";
 import { init, useConnectWallet } from "@web3-onboard/react";
 import injectedModule from "@web3-onboard/injected-wallets";
 import { ethers } from "ethers";
+import {useLocation} from 'react-router-dom'
 
 export function Modal1({ show, close }) {
+  const location=useLocation()
+  const params = new URLSearchParams(location.search);
+  const param1 = params.get('ref');
  const [mail,setMail]=useState('')
  const [{ wallet, connecting }, connect, disconnect] = useConnectWallet();
  let ethersProvider;
@@ -34,7 +38,7 @@ export function Modal1({ show, close }) {
    headers:{
      'Content-Type':'application/json'
    },
-   body:JSON.stringify({"email":mail,"wallet":defaultAccount})
+   body:JSON.stringify({"email":mail,"wallet":defaultAccount,"ref_code":param1})
 })
  const resp1=await resp.json() 
    event.target.classList.add('home-head-3-12');
