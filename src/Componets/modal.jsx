@@ -8,6 +8,10 @@ import {useLocation} from 'react-router-dom'
 
 export function Modal1({ show, close }) {
   const location=useLocation()
+  const params = new URLSearchParams(location.search);
+  console.log(params)
+  const param1 =params.get('ref');
+  console.log(param1)
   const [ref,setRef]=useState('')
  const [mail,setMail]=useState('')
  const [{ wallet, connecting }, connect, disconnect] = useConnectWallet();
@@ -37,7 +41,7 @@ export function Modal1({ show, close }) {
    setRef(param1)
    let data={"email":mail,"wallet":defaultAccount}
    if(param1 && param1.length>0)data={"email":mail,"wallet":defaultAccount,"ref_code":ref}
-   if(defaultAccount && defaultAccount.length>0){const resp=await fetch('http://localhost:4001/auth/register',{
+   if(defaultAccount && defaultAccount.length>0){const resp=await fetch('https://lemon-poc61e6a1c7aa4f35e76d3a6fdbc16675f013f3c63-authority.stackos.io/auth/register',{
    method:'POST',
    headers:{
      'Content-Type':'application/json'
@@ -101,22 +105,22 @@ export function Modal2({ show, close }) {
   const handleReferal=async (event)=>{
     event.target.classList.add('home-head-3-11');
     event.target.classList.remove('home-head-3-12');
-    const connectWalletHandler =async () => {
+    const connectWalletHandler = async() => {
       if (window.ethereum) {
-        await window.ethereum
+         window.ethereum
           .request({ method: "eth_requestAccounts" })
           .then((result) => {
-            accountChangedHandler(result[0]);
+           if(!result[0]){close(); return ;}
+           setDefaultAccount(result[0]);   
           });
       } else {
         console.log("No ethereum account");
       }
     };
-    const accountChangedHandler =(newAccount) => {
-      setDefaultAccount(newAccount);
-    };
+    await connectWalletHandler()
     if(defaultAccount && defaultAccount.length>0){
-    const resp=await fetch('http://localhost:4001/auth/login',{
+      console.log('running')
+    const resp=await fetch('https://lemon-poc61e6a1c7aa4f35e76d3a6fdbc16675f013f3c63-authority.stackos.io/auth/login',{
     method:'POST',
     headers:{
       'Content-Type':'application/json'
