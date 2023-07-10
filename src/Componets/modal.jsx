@@ -1,62 +1,71 @@
-import React, { useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import "../Style/modal.css";
 import Close from "../Assets/xmark-solid.svg";
 import { init, useConnectWallet } from "@web3-onboard/react";
 import injectedModule from "@web3-onboard/injected-wallets";
 import { ethers } from "ethers";
-import {useLocation} from 'react-router-dom'
+import { useLocation } from "react-router-dom";
 
 export function Modal1({ show, close }) {
-  const location=useLocation()
-  const params = new URLSearchParams(location.search);
-  console.log(params)
-  const param1 =params.get('ref');
-  console.log(param1)
-  const [ref,setRef]=useState('')
- const [mail,setMail]=useState('')
- const [{ wallet, connecting }, connect, disconnect] = useConnectWallet();
- let ethersProvider;
- if (wallet) {
-   ethersProvider = new ethers.BrowserProvider(wallet.provider, "any");
- }
- const [defaultAccount, setDefaultAccount] = useState(null);
- const handleReferal=async (event)=>{
-   event.target.classList.add('home-head-3-11');
-   event.target.classList.remove('home-head-3-12');
-   const connectWalletHandler = async() => {
-     if (window.ethereum) {
+  const location = useLocation();
+  const [ref, setRef] = useState("");
+  const [mail, setMail] = useState("");
+  const [{ wallet, connecting }, connect, disconnect] = useConnectWallet();
+  let ethersProvider;
+  if (wallet) {
+    ethersProvider = new ethers.BrowserProvider(wallet.provider, "any");
+  }
+  const [defaultAccount, setDefaultAccount] = useState(null);
+  const handleReferal = async (event) => {
+    event.target.classList.add("home-head-3-11");
+    event.target.classList.remove("home-head-3-12");
+    const connectWalletHandler = async () => {
+      if (window.ethereum) {
         window.ethereum
-         .request({ method: "eth_requestAccounts" })
-         .then((result) => {
-          if(!result[0]){close(); return ;}
-          setDefaultAccount(result[0]);   
-         });
-     } else {
-       console.log("No ethereum account");
-     }
-   };
-   await connectWalletHandler()
-   const params = new URLSearchParams(location.search);
-   const param1 =params.get('ref');
-   setRef(param1)
-   let data={"email":mail,"wallet":defaultAccount}
-   if(param1 && param1.length>0)data={"email":mail,"wallet":defaultAccount,"ref_code":ref}
-   if(defaultAccount && defaultAccount.length>0){const resp=await fetch('https://lemon-poc61e6a1c7aa4f35e76d3a6fdbc16675f013f3c63-authority.stackos.io/auth/register',{
-   method:'POST',
-   headers:{
-     'Content-Type':'application/json'
-   },
-   body:JSON.stringify(data)
-})
- const resp1=await resp.json() 
-   event.target.classList.add('home-head-3-12');
-   event.target.classList.remove('home-head-3-11');
- close()
- setMail('')
- if(resp1.data){
-  console.log("success")
- }}
-}
+          .request({ method: "eth_requestAccounts" })
+          .then((result) => {
+            if (!result[0]) {
+              close();
+              return;
+            }
+            setDefaultAccount(result[0]);
+          });
+      } else {
+        console.log("No ethereum account");
+      }
+    };
+    await connectWalletHandler();
+    const params = new URLSearchParams(location.search);
+    const param1 = params.get("ref");
+    setRef(param1);
+    let data = { email: mail, wallet: defaultAccount };
+    if (param1 && param1.length > 0)
+      data = {
+        email: mail,
+        wallet: defaultAccount,
+        ...(ref ? { ref_code: ref } : {}),
+      };
+    if (defaultAccount && defaultAccount.length > 0) {
+      const resp = await fetch(
+        "https://lemon-poc61e6a1c7aa4f35e76d3a6fdbc16675f013f3c63-authority.stackos.io/auth/register",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        }
+      );
+      const resp1 = await resp.json();
+      event.target.classList.add("home-head-3-12");
+      event.target.classList.remove("home-head-3-11");
+      close();
+      setMail("");
+      if (resp1.data) {
+        console.log("success");
+      }
+    }
+  };
   return (
     <>
       {show ? (
@@ -82,11 +91,20 @@ export function Modal1({ show, close }) {
                 <input type="text" placeholder="Last Name" />
               </div>
               <div className="modal-content-2">
-                <input type="text" value={mail} onChange={(event)=>{setMail(event.target.value)}} placeholder="Enter Your Email" />
+                <input
+                  type="text"
+                  value={mail}
+                  onChange={(event) => {
+                    setMail(event.target.value);
+                  }}
+                  placeholder="Enter Your Email"
+                />
               </div>
             </main>
             <footer className="modal_footer">
-              <button className="submit home-head-3-12" onClick={handleReferal}>Submit</button>
+              <button className="submit home-head-3-12" onClick={handleReferal}>
+                Submit
+              </button>
             </footer>
           </div>
         </div>
@@ -97,45 +115,121 @@ export function Modal1({ show, close }) {
 
 export function Modal2({ show, close }) {
   const [{ wallet, connecting }, connect, disconnect] = useConnectWallet();
+  const [token] = useState(localStorage.getItem("token") || null);
+  const [user, setUser] = useState(null);
+
   let ethersProvider;
   if (wallet) {
     ethersProvider = new ethers.BrowserProvider(wallet.provider, "any");
   }
   const [defaultAccount, setDefaultAccount] = useState(null);
-  const handleReferal=async (event)=>{
-    event.target.classList.add('home-head-3-11');
-    event.target.classList.remove('home-head-3-12');
-    const connectWalletHandler = async() => {
+
+  const getUser = useCallback(async () => {
+    if (token) {
+      const res = await fetch(
+        "https://lemon-poc61e6a1c7aa4f35e76d3a6fdbc16675f013f3c63-authority.stackos.io/auth/status",
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      const userResp = await res.json();
+
+      setUser(userResp.data);
+    }
+  }, [token]);
+
+  useEffect(() => {
+    getUser();
+  }, []);
+
+  const handleReferal = async (event) => {
+    event.target.classList.add("home-head-3-11");
+    event.target.classList.remove("home-head-3-12");
+    const connectWalletHandler = async () => {
       if (window.ethereum) {
-         window.ethereum
+        window.ethereum
           .request({ method: "eth_requestAccounts" })
           .then((result) => {
-           if(!result[0]){close(); return ;}
-           setDefaultAccount(result[0]);   
+            if (!result[0]) {
+              close();
+              return;
+            }
+            setDefaultAccount(result[0]);
           });
       } else {
         console.log("No ethereum account");
       }
     };
-    await connectWalletHandler()
-    if(defaultAccount && defaultAccount.length>0){
-      console.log('running')
-    const resp=await fetch('https://lemon-poc61e6a1c7aa4f35e76d3a6fdbc16675f013f3c63-authority.stackos.io/auth/login',{
-    method:'POST',
-    headers:{
-      'Content-Type':'application/json'
-    },
-    body:JSON.stringify({"wallet":defaultAccount})
-})
-  const resp1=await resp.json() 
-    event.target.classList.add('home-head-3-12');
-    event.target.classList.remove('home-head-3-11');
-  close()
-  console.log(resp1)
-  if(resp1.data==null){
-    console.log('Signup First')
-  }}
-}
+    await connectWalletHandler();
+
+    if (defaultAccount && defaultAccount.length > 0) {
+      let ref_code;
+      if (!user) {
+        let userResp;
+        if (!token) {
+          const resp = await fetch(
+            "https://lemon-poc61e6a1c7aa4f35e76d3a6fdbc16675f013f3c63-authority.stackos.io/auth/login",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({ wallet: defaultAccount }),
+            }
+          );
+          const resp1 = await resp.json();
+          event.target.classList.add("home-head-3-12");
+          event.target.classList.remove("home-head-3-11");
+          close();
+          if (resp1.data == null) {
+            alert("Signup First");
+            return;
+          } else {
+            const res2 = await fetch(
+              "https://lemon-poc61e6a1c7aa4f35e76d3a6fdbc16675f013f3c63-authority.stackos.io/auth/status",
+              {
+                method: "GET",
+                headers: {
+                  "Content-Type": "application/json",
+                  Authorization: `Bearer ${resp1.data}`,
+                },
+              }
+            );
+            userResp = await res2.json();
+            setUser(userResp.data);
+            localStorage.setItem("token", resp1.data);
+          }
+        } else {
+          const res2 = await fetch(
+            "https://lemon-poc61e6a1c7aa4f35e76d3a6fdbc16675f013f3c63-authority.stackos.io/auth/status",
+            {
+              method: "GET",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          );
+          userResp = await res2.json();
+          setUser(userResp.data);
+        }
+
+        ref_code = userResp.data.referrer_code;
+      } else {
+        ref_code = user.referrer_code;
+      }
+
+      if (ref_code) {
+        navigator.clipboard.writeText(window.location.origin + "?ref=" + ref_code);
+        alert("Referral link copied!");
+      }
+    }
+  };
   return (
     <>
       {show ? (
@@ -549,7 +643,9 @@ export function Modal2({ show, close }) {
               </div>
             </main>
             <footer className="modal_footer">
-              <button className="submit home-head-3-12" onClick={handleReferal}>Refer & Win</button>
+              <button className="submit home-head-3-12" onClick={handleReferal}>
+                Refer & Win
+              </button>
             </footer>
           </div>
         </div>
